@@ -6,11 +6,14 @@
 # Sends a TCP packet from user input text to any IP and port.
 # Run with 'sudo python3 sender.py'
 
+
 # Set the destination IP address and port
 
-from socket import socket, AF_INET, SOCK_STREAM
 TARGET_IP = '0.0.0.0'
 PORT = 80
+
+
+from socket import socket, AF_INET, SOCK_STREAM
 
 
 # Prompt the user for the message to send

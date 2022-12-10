@@ -6,11 +6,13 @@
 # Listens for TCP packets on any available port.
 # Run with 'sudo python3 listener.py'
 
+
 # Set the listening port
 
-import socket
 PORT = 80
 
+
+import socket
 
 # create a socket object
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

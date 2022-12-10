@@ -7,7 +7,16 @@
 # Might need to run 'pip3 install cryptography' before starting.
 # Run with 'sudo python3 listener-decrypter.py'
 
+
 # Set the listening port
+
+PORT = 80
+
+# Set the Fernet key (it must be the same as the one used to send encrypted messages)
+# Better to make a new one and put that same key into the sender-encrypter.py file
+
+fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk11lVDbXYEbOENuHU='
+
 
 from socket import socket, AF_INET, SOCK_STREAM
 from cryptography.exceptions import InvalidSignature
@@ -17,13 +26,6 @@ from cryptography.hazmat.primitives import hashes, hmac
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.fernet import Fernet
 import binascii
-PORT = 80
-
-# Set the Fernet key (it must be the same as the one used to send encrypted messages)
-# Better to make a new one and put that same key into the sender-encrypter.py file
-
-fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk11lVDbXYEbOENuHU='
-
 
 print(f'\nWaiting for encrypted TCP packets on port {PORT} ...')
 

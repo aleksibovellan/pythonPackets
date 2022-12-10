@@ -7,12 +7,15 @@
 # Also sets a random source IP address.
 # Run with 'sudo python3 sender-randomSource.py'
 
+
 # Set the destination IP address and port
+
+TARGET_IP = '0.0.0.0'
+PORT = 80
+
 
 import random
 import socket
-TARGET_IP = '0.0.0.0'
-PORT = 80
 
 
 # Create a TCP/IP socket

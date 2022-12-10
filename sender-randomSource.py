@@ -18,12 +18,16 @@ source_ip = ".".join(str(random.randint(0, 255)) for _ in range(4))
 dest_ip = "TARGET_IP"
 dest_port = 80
 
-# Connect to the destination
-sock.connect((dest_ip, dest_port))
+message = input("Enter the message to send: ").encode()
 
-# Send a single packet
-sock.send(input("Enter the message to send: ").encode())
-
+try:
+    # Connect to the destination
+    sock.connect((dest_ip, dest_port))
+    # Send a single packet
+    sock.send(message)
+    print("The packet was sent!")
+except:
+    print("The packet was not sent.")
 
 # Close the socket
 sock.close()

@@ -38,6 +38,6 @@ try:
         print("Packet sent!")
 
 except:
-        print("Packet did not send.")
+        print("Packet was not send.")
 
 

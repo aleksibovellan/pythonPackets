@@ -5,7 +5,8 @@
 #
 # Sends a symmetrically encrypted UDP packet from user input text to any IP address and port set below.
 # Might need to run 'pip3 install cryptography' before starting.
-# Run with 'sudo python3.9 udp-sender-encrypter.py'
+# Run on Linux with "sudo python3 udp-sender-encrypter.py"
+# Run on MacOS with 'sudo python3.9 udp-sender-encrypter.py'
 
 
 # Set the destination IP address and port

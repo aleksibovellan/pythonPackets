@@ -19,13 +19,13 @@ serversocket.bind((host, port))
 # queue up to 5 requests
 serversocket.listen(5)
 
-print("Waiting for TCP connections on port 80 ...")
+print("\nWaiting for TCP connections on port 80 ...")
 
 while True:
     # establish a connection
     clientsocket,addr = serversocket.accept()
 
-    print("Got a connection from %s" % str(addr))
+    print("\nGot a connection from %s" % str(addr))
 
     # receive data from the client
     data = clientsocket.recv(1024)
@@ -34,7 +34,9 @@ while True:
 
     # send a thank you message to the client
     clientsocket.send(b'Thank you for connecting')
+    print("\n")
 
     # close the connection
     clientsocket.close()
+
 

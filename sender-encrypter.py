@@ -31,13 +31,14 @@ def send_message(encrypted_message, target_ip, target_port):
         s.sendall(encrypted_message)
 
 # Example usage
-message = input("Enter the message to send: ").encode()
+message = input("\nEnter the message to send: ").encode()
 encrypted_message = encrypt_message(message, fernet_key)
 try:
-        send_message(encrypted_message, 'TARGET_IP', 80)
-        print("Packet sent!")
+        send_message(encrypted_message, '20.100.193.169', 80)
+        print("\nPacket sent!\n")
 
 except:
-        print("Could not create a connection.")
+        print("\nCould not create a connection.\n")
+    
 
 

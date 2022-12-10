@@ -18,16 +18,17 @@ source_ip = ".".join(str(random.randint(0, 255)) for _ in range(4))
 dest_ip = "TARGET_IP"
 dest_port = 80
 
-message = input("Enter the message to send: ").encode()
+message = input("\nEnter the message to send: ").encode()
 
 try:
     # Connect to the destination
     sock.connect((dest_ip, dest_port))
     # Send a single packet
     sock.send(message)
-    print("The packet was sent!")
+    print("\nThe packet was sent!\n")
 except:
-    print("Could not create a connection.")
+    print("\nCould not create a connection.\n")
+
 
 # Close the socket
 sock.close()

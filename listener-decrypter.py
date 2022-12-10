@@ -18,7 +18,7 @@ from socket import socket, AF_INET, SOCK_STREAM
 
 fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk11lVDbXYEbOENuHU='
 
-waitingText = "Waiting for encrypted TCP packet on port 80 ..."
+waitingText = "\nWaiting for encrypted TCP packet on port 80 ..."
 print(waitingText)
 
 # Decrypt the message using the Fernet key
@@ -34,18 +34,19 @@ def listen_for_connections(listen_port):
   s.listen()
   conn, addr = s.accept()
   with conn:
-   print('Connection from', addr)
+   print('\nConnection from', addr)
    while True:
     try:
      data = conn.recv(1024)
      if not data:
       break
      decrypted_message = decrypt_message(data, fernet_key)
-     print('Received message:', decrypted_message)
+     print('Received message:', decrypted_message, '\n')
     except binascii.Error:
-     print("Could not read probably not encrypted packet")                 
+     print("Could not read probably not encrypted packet\n")                 
     except:
-     print("Could not read probably not encrypted packet")
+     print("Could not read probably not encrypted packet\n")
 
 # Example usage
 listen_for_connections(80)
+

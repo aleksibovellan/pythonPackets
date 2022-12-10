@@ -1,7 +1,14 @@
+# pythonPackets v.1.0
 # listener.py
+#
+# Aleksi Bovellan
+#
+# Listens for TCP packets on any available port.
+# Run with 'sudo python3 listener.py'
 
-# Listens for TCP packets on port 80
-# Use with python3
+# Set the listening port
+
+PORT = 80
 
 import socket
 
@@ -11,19 +18,18 @@ serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # get local machine name
 host = socket.gethostname()
 
-port = 80
 
 # bind to the port
-serversocket.bind((host, port))
+serversocket.bind((host, PORT))
 
 # queue up to 5 requests
 serversocket.listen(5)
 
-print("\nWaiting for TCP connections on port 80 ...")
+print("\nWaiting for TCP connections on port " + PORT + " ...")
 
 while True:
     # establish a connection
-    clientsocket,addr = serversocket.accept()
+    clientsocket, addr = serversocket.accept()
 
     print("\nGot a connection from %s" % str(addr))
 
@@ -34,9 +40,6 @@ while True:
 
     # send a thank you message to the client
     clientsocket.send(b'Thank you for connecting')
-    print("\n")
 
     # close the connection
     clientsocket.close()
-
-

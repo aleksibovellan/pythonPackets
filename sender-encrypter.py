@@ -1,9 +1,21 @@
+# pythonPackets v.1.0
 # sender-encrypter.py
 #
-# Sends an encrypted TCP packet from user input text to port 80
-# Might need to run pip3 install cryptography
-# Fill in TARGET_IP below
-# Run with python 3.9
+# Aleksi Bovellan
+#
+# Sends an encrypted TCP packet from user input text to any IP and port.
+# Might need to run 'pip3 install cryptography' before starting.
+# Run with 'sudo python3.9 sender-encrypter.py'
+
+# Set the destination IP address and port
+
+TARGET_IP = '0.0.0.0'
+PORT = 80
+
+# Set the Fernet key (it must be the same as the one used to read and decrypt encrypted messages)
+# Better to make a new one and put that same key into the listener-decrypter.py file.
+
+fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk11lVDbXYEbOENuHU='
 
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
@@ -13,32 +25,31 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.exceptions import InvalidSignature
 from socket import socket, AF_INET, SOCK_STREAM
 
-# Generate a random 32-byte Fernet key
-# Better to make your own and put the same key into the listener-decrypter.py
 
-fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk11lVDbXYEbOENuHU='
 
 # Encrypt the message using the Fernet key
+
+
 def encrypt_message(message, fernet_key):
     f = Fernet(fernet_key)
     encrypted_message = f.encrypt(message)
     return encrypted_message
 
 # Send the encrypted message to the target IP address and port
+
+
 def send_message(encrypted_message, target_ip, target_port):
     with socket(AF_INET, SOCK_STREAM) as s:
         s.connect((target_ip, target_port))
         s.sendall(encrypted_message)
 
+
 # Example usage
 message = input("\nEnter the message to send: ").encode()
 encrypted_message = encrypt_message(message, fernet_key)
 try:
-        send_message(encrypted_message, '20.100.193.169', 80)
-        print("\nPacket sent!\n")
+    send_message(encrypted_message, TARGET_IP, PORT)
+    print("\nPacket sent!\n")
 
 except:
-        print("\nCould not create a connection.\n")
-    
-
-
+    print("\nCould not create a connection.\n")

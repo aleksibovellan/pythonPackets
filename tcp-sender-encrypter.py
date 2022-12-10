@@ -47,7 +47,7 @@ message = input("\nEnter the message to send: ").encode()
 encrypted_message = encrypt_message(message, fernet_key)
 try:
     send_message(encrypted_message, TARGET_IP, PORT)
-    print("\nPacket sent!\n")
+    print("\nPacket was sent!\n")
 
 except:
     print("\nCould not create a connection.\n")

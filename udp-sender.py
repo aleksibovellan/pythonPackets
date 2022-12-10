@@ -33,7 +33,7 @@ try:
  sock.sendto(message.encode(), (IP_TARGET, PORT))
  print("\nPacket was sent!\n")
 except:
- print("\nCould not create connection.\n")
+ print("The packet was not sent.\n")
 
 
 # Close the socket

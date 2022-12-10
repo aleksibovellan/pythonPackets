@@ -26,7 +26,7 @@ def send_message(message, target_ip, target_port):
         with socket(AF_INET, SOCK_STREAM) as s:
             s.connect((target_ip, target_port))
             s.sendall(message.encode())
-            print("\nThe packet was sent!\n")
+            print("\nPacket was sent!\n")
     except ConnectionRefusedError as error:
         print("\nCould not create a connection.\n")
     except:

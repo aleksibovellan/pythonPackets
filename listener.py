@@ -19,6 +19,8 @@ serversocket.bind((host, port))
 # queue up to 5 requests
 serversocket.listen(5)
 
+print("Waiting for TCP connections on port 80 ...")
+
 while True:
     # establish a connection
     clientsocket,addr = serversocket.accept()

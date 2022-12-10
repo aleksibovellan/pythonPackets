@@ -1,8 +1,9 @@
 # sender-encrypter.py
 #
-# might need to run pip3 install cryptography
-# fill in TARGET_IP below
-# run with python 3.9
+# Sends an encrypted TCP packet from user input text to port 80
+# Might need to run pip3 install cryptography
+# Fill in TARGET_IP below
+# Run with python 3.9
 
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
@@ -30,7 +31,7 @@ def send_message(encrypted_message, target_ip, target_port):
         s.sendall(encrypted_message)
 
 # Example usage
-message = b'Hello, world!'
+message = input("Enter the message to send: ").encode()
 encrypted_message = encrypt_message(message, fernet_key)
 try:
         send_message(encrypted_message, 'TARGET_IP', 80)

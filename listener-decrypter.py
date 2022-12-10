@@ -1,7 +1,8 @@
 # listener-decrypter.py
 #
-# might need to run pip3 install cryptography
-# run with python3
+# Listens for an encrypted TCP packet on port 80 and decrypts it
+# Might need to run pip3 install cryptography
+# Run with python3
 
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC

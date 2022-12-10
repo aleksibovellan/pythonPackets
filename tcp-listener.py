@@ -37,7 +37,7 @@ try:
     # establish a connection
     clientsocket, addr = serversocket.accept()
 
-    print("\nGot a connection from %s" % str(addr))
+    print("\nConnection from %s" % str(addr))
 
     # receive data from the client
     data = clientsocket.recv(1024).decode()

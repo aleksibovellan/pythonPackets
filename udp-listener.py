@@ -30,7 +30,7 @@ try:
   data, addr = sock.recvfrom(1024)
 
   # Print the UDP packet in plain text
-  print(f"\nGot a connection from {addr}")
+  print(f"\nConnection from {addr}")
   print("Received data: " + data.decode())
   
 except KeyboardInterrupt:

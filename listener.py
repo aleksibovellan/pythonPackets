@@ -27,7 +27,7 @@ serversocket.bind((host, PORT))
 # queue up to 5 requests
 serversocket.listen(5)
 
-print("\nWaiting for TCP connections on port " + PORT + " ...")
+print(f'\nWaiting for TCP packets on port {PORT} ...')
 
 while True:
     # establish a connection

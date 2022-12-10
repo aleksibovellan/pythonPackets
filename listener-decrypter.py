@@ -54,8 +54,8 @@ def listen_for_connections(listen_port):
                         if not data:
                             break
                         decrypted_message = decrypt_message(data, fernet_key)
-                        print('Received encrypted message:',
-                              decrypted_message, '\n')
+                        print('Received encrypted packet:',
+                              decrypted_message.decode(), '\n')
                     except binascii.Error:
                         print("Could not read, probably not encrypted packet\n")
                     except:

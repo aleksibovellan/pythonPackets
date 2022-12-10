@@ -1,4 +1,4 @@
-# pythonPackets v.1.1
+# pythonPackets v.1.2
 # tcp-listener-decrypter.py
 #
 # Aleksi Bovellan
@@ -45,14 +45,14 @@ def listen_for_connections(listen_port):
             s.listen()
             conn, addr = s.accept()
             with conn:
-                print('\nConnection from', addr)
+                print('\nGot connection from', addr)
                 while True:
                     try:
                         data = conn.recv(1024)
                         if not data:
                             break
                         decrypted_message = decrypt_message(data, fernet_key)
-                        print('Received encrypted packet:',
+                        print('Received encrypted TCP packet:',
                               decrypted_message.decode())
                     except binascii.Error:
                         print("Could not read, probably not encrypted packet")

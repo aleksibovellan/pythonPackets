@@ -1,4 +1,4 @@
-# pythonPackets v.1.1
+# pythonPackets v.1.2
 # udp-sender.py
 #
 # Aleksi Bovellan

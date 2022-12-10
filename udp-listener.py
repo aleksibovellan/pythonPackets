@@ -1,4 +1,4 @@
-# pythonPackets v.1.1
+# pythonPackets v.1.2
 # udp-listener.py
 #
 # Aleksi Bovellan
@@ -30,8 +30,8 @@ try:
   data, addr = sock.recvfrom(1024)
 
   # Print the UDP packet in plain text
-  print(f"\nConnection from {addr}")
-  print("Received data: " + data.decode())
+  print(f"\nGot coonnection from {addr}")
+  print("Received UDP packet: " + data.decode())
   
 except KeyboardInterrupt:
  print("\n")

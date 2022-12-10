@@ -1,4 +1,4 @@
-# pythonPackets v.1.1
+# pythonPackets v.1.2
 # tcp-sender-encrypter.py
 #
 # Aleksi Bovellan

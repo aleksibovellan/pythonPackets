@@ -1,4 +1,4 @@
-# pythonPackets v.1.1
+# pythonPackets v.1.2
 # tcp-listener.py
 #
 # Aleksi Bovellan
@@ -37,12 +37,12 @@ try:
     # establish a connection
     clientsocket, addr = serversocket.accept()
 
-    print("\nConnection from %s" % str(addr))
+    print("\nGot connection from %s" % str(addr))
 
     # receive data from the client
     data = clientsocket.recv(1024).decode()
 
-    print("Received data: %s" % data)
+    print("Received TCP packet: %s" % data)
 
     # send a thank you message to the client
     clientsocket.send(b'Thank you for connecting')

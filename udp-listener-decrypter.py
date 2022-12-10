@@ -1,9 +1,9 @@
-# pythonPackets v.1.1
+# pythonPackets v.1.2
 # udp-listener-decrypter.py
 #
 # Aleksi Bovellan
 #
-# Listens for symmetrically encrypted UDP packets on port set below and decrypt>
+# Listens for symmetrically encrypted UDP packets on port set below and decrypts them.
 # Might need to run 'pip3 install cryptography' before starting.
 # Run with 'sudo python3 udp-listener-decrypter.py'
 
@@ -39,7 +39,7 @@ def listen_for_connections():
      f = Fernet(key)
      decrypted_message = f.decrypt(data)
      # Print the decrypted message
-     print('Connection from', addr)
+     print('Got connection from', addr)
      print('Received encrypted UDP packet:', decrypted_message.decode(), "\n")
     except binascii.Error:
      print("Could not read, fragmented or not encrypted packet\n")

@@ -36,7 +36,7 @@ while True:
     print("\nGot a connection from %s" % str(addr))
 
     # receive data from the client
-    data = clientsocket.recv(1024)
+    data = clientsocket.recv(1024).decode()
 
     print("Received data: %s" % data)
 
@@ -45,3 +45,4 @@ while True:
 
     # close the connection
     clientsocket.close()
+

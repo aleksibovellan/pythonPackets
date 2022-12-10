@@ -9,24 +9,20 @@
 
 # Set the listening port
 
+from socket import socket, AF_INET, SOCK_STREAM
+from cryptography.exceptions import InvalidSignature
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives import hashes, hmac
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+from cryptography.fernet import Fernet
+import binascii
 PORT = 80
 
 # Set the Fernet key (it must be the same as the one used to send encrypted messages)
 # Better to make a new one and put that same key into the sender-encrypter.py file
 
 fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk11lVDbXYEbOENuHU='
-
-import binascii
-from cryptography.fernet import Fernet
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-from cryptography.hazmat.primitives import hashes, hmac
-from cryptography.hazmat.primitives.asymmetric import padding
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.exceptions import InvalidSignature
-from socket import socket, AF_INET, SOCK_STREAM
-
-
-
 
 
 print(f'\nWaiting for encrypted TCP packets on port {PORT} ...')
@@ -56,7 +52,8 @@ def listen_for_connections(listen_port):
                         if not data:
                             break
                         decrypted_message = decrypt_message(data, fernet_key)
-                        print('Received encrypted message:', decrypted_message, '\n')
+                        print('Received encrypted message:',
+                              decrypted_message, '\n')
                     except binascii.Error:
                         print("Could not read, probably not encrypted packet\n")
                     except:

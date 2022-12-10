@@ -9,11 +9,11 @@
 
 # Set the destination IP address and port
 
+import random
+import socket
 TARGET_IP = '0.0.0.0'
 PORT = 80
 
-import socket
-import random
 
 # Create a TCP/IP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

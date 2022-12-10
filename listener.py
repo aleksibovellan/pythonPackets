@@ -8,9 +8,9 @@
 
 # Set the listening port
 
+import socket
 PORT = 80
 
-import socket
 
 # create a socket object
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

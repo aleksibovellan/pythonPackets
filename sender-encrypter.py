@@ -9,6 +9,13 @@
 
 # Set the destination IP address and port
 
+from socket import socket, AF_INET, SOCK_STREAM
+from cryptography.exceptions import InvalidSignature
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives import hashes, hmac
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+from cryptography.fernet import Fernet
 TARGET_IP = '0.0.0.0'
 PORT = 80
 
@@ -16,15 +23,6 @@ PORT = 80
 # Better to make a new one and put that same key into the listener-decrypter.py file.
 
 fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk11lVDbXYEbOENuHU='
-
-from cryptography.fernet import Fernet
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-from cryptography.hazmat.primitives import hashes, hmac
-from cryptography.hazmat.primitives.asymmetric import padding
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.exceptions import InvalidSignature
-from socket import socket, AF_INET, SOCK_STREAM
-
 
 
 # Encrypt the message using the Fernet key

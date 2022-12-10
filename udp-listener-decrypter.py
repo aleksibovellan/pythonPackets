@@ -43,8 +43,10 @@ def listen_for_connections():
     except binascii.Error:
      print("Could not read, fragmented or not encrypted packet\n")
     except:
-     sock.close()
-     exit()
+     print("Could not read, fragmented or not encrypted packet\n")
  except KeyboardInterrupt:
    sock.close()
    exit()
+
+# Example usage
+listen_for_connections()

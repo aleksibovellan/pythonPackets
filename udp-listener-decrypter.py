@@ -15,7 +15,7 @@ PORT = 80
 # Set the Fernet key (it must be the same as the one used to send encrypted mes>
 # Better make a new one and put that same key into the udp-sender-encrypter.py >
 
-key = b'GxLP1dAs6U6DxGvQ0uuuIdgJcnPOtaL5bpuwehbWn9k='
+key = b'GxLP1dAs6U6DxGvQ0pppIdgJcnPOtaL5bpuwehbWn9k='
 
 
 import base64

@@ -15,7 +15,7 @@ PORT = 80
 # Set the Fernet key (it must be the same as the one used to create and send encrypted messages)
 # Better make a new one and put that same key into the tcp-sender-encrypter.py file
 
-fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk11lVDbXYEbOENuHU='
+fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk33lVDbXYEbOENuHU='
 
 
 from socket import socket, AF_INET, SOCK_STREAM

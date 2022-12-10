@@ -51,3 +51,5 @@ def listen_for_connections():
    sock.close()
    exit()
 
+# Example usage
+listen_for_connections()

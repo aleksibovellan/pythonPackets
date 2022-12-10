@@ -1,10 +1,10 @@
-# pythonPackets v.1.0
-# listener.py
+# pythonPackets v.1.1
+# tcp-listener.py
 #
 # Aleksi Bovellan
 #
-# Listens for TCP packets on any available port.
-# Run with 'sudo python3 listener.py'
+# Listens for TCP packets on port set below.
+# Run with 'sudo python3 tcp-listener.py'
 
 
 # Set the listening port
@@ -17,6 +17,7 @@ import socket
 # create a socket object
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+
 # get local machine name
 host = socket.gethostname()
 
@@ -24,10 +25,12 @@ host = socket.gethostname()
 # bind to the port
 serversocket.bind((host, PORT))
 
+
 # queue up to 5 requests
 serversocket.listen(5)
 
 print(f'\nWaiting for TCP packets on port {PORT} ...')
+
 
 while True:
     # establish a connection

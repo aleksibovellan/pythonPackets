@@ -1,19 +1,19 @@
-# pythonPackets v.1.0
-# listener-decrypter.py
+# pythonPackets v.1.1
+# tcp-listener-decrypter.py
 #
 # Aleksi Bovellan
 #
-# Listens for encrypted TCP packets on any available port and decrypts them.
+# Listens for symmetrically encrypted TCP packets on port set below and decrypts them.
 # Might need to run 'pip3 install cryptography' before starting.
-# Run with 'sudo python3 listener-decrypter.py'
+# Run with 'sudo python3 tcp-listener-decrypter.py'
 
 
 # Set the listening port
 
 PORT = 80
 
-# Set the Fernet key (it must be the same as the one used to send encrypted messages)
-# Better to make a new one and put that same key into the sender-encrypter.py file
+# Set the Fernet key (it must be the same as the one used to create and send encrypted messages)
+# Better make a new one and put that same key into the tcp-sender-encrypter.py file
 
 fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk11lVDbXYEbOENuHU='
 
@@ -29,17 +29,14 @@ import binascii
 
 print(f'\nWaiting for encrypted TCP packets on port {PORT} ...')
 
+
 # Decrypt the message using the Fernet key
-
-
 def decrypt_message(encrypted_message, fernet_key):
     f = Fernet(fernet_key)
     decrypted_message = f.decrypt(encrypted_message)
     return decrypted_message
 
 # Listen for incoming connections on the specified port
-
-
 def listen_for_connections(listen_port):
     with socket(AF_INET, SOCK_STREAM) as s:
         s.bind(('', listen_port))
@@ -64,4 +61,3 @@ def listen_for_connections(listen_port):
 
 # Example usage
 listen_for_connections(PORT)
-

@@ -27,7 +27,7 @@ try:
     sock.send(message)
     print("The packet was sent!")
 except:
-    print("The packet was not sent.")
+    print("Could not create a connection.")
 
 # Close the socket
 sock.close()

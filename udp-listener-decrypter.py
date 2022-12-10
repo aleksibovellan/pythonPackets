@@ -44,7 +44,9 @@ def listen_for_connections():
      print("Could not read, fragmented or not encrypted packet\n")
     except:
      print("Could not read, fragmented or not encrypted packet\n")
+     
  except KeyboardInterrupt:
+   print("\n")
    sock.close()
    exit()
 

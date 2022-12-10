@@ -24,12 +24,22 @@ sock.bind(('', PORT))
 print(f'\nWaiting for UDP packets on port {PORT} ...')
 
 
-while True:
-    # Receive the UDP packet
-    data, addr = sock.recvfrom(1024)
+try:
+ while True:
+  # Receive the UDP packet
+  data, addr = sock.recvfrom(1024)
 
-    # Print the UDP packet in plain text
-    print("\n" + data.decode())
+  # Print the UDP packet in plain text
+  print(f"\nGot a connection from {addr}")
+  print("Received data: " + data.decode())
+  
+except KeyboardInterrupt:
+ print("\n")
+ # Close the socket
+ sock.close()
+ exit()
 
-# Close the socket
-sock.close()
+
+
+
+

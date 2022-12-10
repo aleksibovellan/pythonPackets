@@ -32,7 +32,8 @@ serversocket.listen(5)
 print(f'\nWaiting for TCP packets on port {PORT} ...')
 
 
-while True:
+try:
+ while True:
     # establish a connection
     clientsocket, addr = serversocket.accept()
 
@@ -48,4 +49,8 @@ while True:
 
     # close the connection
     clientsocket.close()
+    
+except KeyboardInterrupt:
+ print("\n")
+ exit()
 

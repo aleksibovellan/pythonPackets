@@ -38,6 +38,7 @@ def decrypt_message(encrypted_message, fernet_key):
 
 # Listen for incoming connections on the specified port
 def listen_for_connections(listen_port):
+ try:
     with socket(AF_INET, SOCK_STREAM) as s:
         s.bind(('', listen_port))
         while True:
@@ -52,12 +53,15 @@ def listen_for_connections(listen_port):
                             break
                         decrypted_message = decrypt_message(data, fernet_key)
                         print('Received encrypted packet:',
-                              decrypted_message.decode(), '\n')
+                              decrypted_message.decode())
                     except binascii.Error:
-                        print("Could not read, probably not encrypted packet\n")
+                        print("Could not read, probably not encrypted packet")
                     except:
-                        print("Could not read, probably not encrypted packet\n")
+                        print("Could not read, probably not encrypted packet")
 
+ except KeyboardInterrupt:
+  print("\n")
+  exit()
 
 # Example usage
 listen_for_connections(PORT)

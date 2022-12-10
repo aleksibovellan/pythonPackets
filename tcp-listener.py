@@ -51,6 +51,6 @@ try:
     clientsocket.close()
     
 except KeyboardInterrupt:
+ serversocket.close()
  print("\n")
  exit()
-

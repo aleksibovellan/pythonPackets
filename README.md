@@ -2,7 +2,7 @@
 
 A collection of Python scrips ("sender and listener" pairs) for easy and fast transfering of any data across the internet using TCP and UDP packets created by Python.
 
-Just by choosing the right pair of scripts, you can use TCP or UDP packets to send any user data in an easy way. The "listener scripts" receive the data sent from the "sender scripts". Packets can be sent normally, or they can also be easily end-to-end encrypted using symmetric Fernet AES128 in CBC mode with SHA256 HMAC message authentication. When choosing to use the encryption script pairs, the symmetric shared password is written inside both files of the chosen pair and should be changed to a new one to enhance security.
+Just by choosing the right pair of scripts, you can use TCP or UDP packets to send any user data in an easy way. The "listener scripts" receive the data sent from the "sender scripts". Packets can be sent normally, or they can also be easily end-to-end encrypted using symmetric Fernet AES128 in CBC mode with SHA256 HMAC message authentication. When choosing to use the encryption script pairs, you'll find the symmetric shared password already written inside both files of the chosen pair, and it should be changed to a new one to enhance security.
 
 The scripts have variables for TARGET_IP and PORT, which should be changed to real ones. Otherwise they will connect to 0.0.0.0 on port 80.
 

@@ -1,4 +1,4 @@
-# pythonPackets
+# pythonPackets v.1.2
 
 A collection of Python scrips ("senders and listeners") for easy and fast transfering of any data across the internet using TCP and UDP packets.
 

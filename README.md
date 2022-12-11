@@ -6,7 +6,7 @@ Just by choosing the right pair of scripts, you can use TCP or UDP packets to se
 
 The scripts have variables for TARGET_IP and PORT, which should be changed to real ones. Otherwise they will connect to 0.0.0.0 on port 80.
 
-The "sender scripts" ask the data to be typed in when the scripts are launched, and then that data will get sent, but the script's functions can also be integrated into any other existing systems needing TCP or UDP connections or encryption.
+The "sender scripts" ask the data to be typed in when the scripts are launched, and then that data will get sent, but the script's functions could also be integrated into some other existing systems needing TCP or UDP connections or encryption.
 
 These scripts run on Linux with 'sudo python3 script', but on MacOS the encryption-senders have to be launched with 'sudo python3.9 script'.
 They also may require 'pip3 install cryptography'.

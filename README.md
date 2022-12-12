@@ -8,7 +8,7 @@ The scripts have variables for TARGET_IP and PORT, which should be changed to re
 
 The "sender scripts" ask the data to be typed in when the scripts are launched, and then that data will get sent, but the script's functions could also be integrated into some other existing systems needing TCP or UDP connections or encryption.
 
-These scripts run on Linux with 'sudo python3 script', but on MacOS the encryption-senders have to be launched with 'sudo python3.9 script'.
-They also may require 'pip3 install cryptography'.
+These scripts run on Linux with 'sudo python3 script'. On MacOS, especially the encryption-senders have to be launched with 'sudo python3.9 script'.
+To work the scripts may require 'pip3 install cryptography', and/or 'sudo apt install scapy" or "sudo apt install python3-scapy'.
 
 More information on Fernet encryption: https://github.com/fernet/spec/blob/master/Spec.md

@@ -1,10 +1,10 @@
 # pythonPackets v. 1.3
 
-## A useful collection of Python scrips ("sender and listener" pairs) for easy and fast transfering of any data across the internet using just TCP and UDP packets created from Python.
+## A useful collection of Python scrips ("sender and listener" pairs) for easy and fast transfering of text or data across the internet using just TCP and UDP packets created from Python. Includes also a custom TCP packet maker script for easy user-defined TCP packet field values to send.
 
 Just by choosing the right pair of scripts, you can use TCP or UDP packets to send any user data in an easy way.
 
-The "listener scripts" receive data sent from the "sender scripts". Packets can be sent normally, or they can also be easily end-to-end encrypted using symmetric Fernet AES128 in CBC mode with SHA256 HMAC message authentication. When choosing to use the encryption script pairs, you'll find the symmetric shared password already written inside both files of the chosen pair, and it should be changed to a new one before usage to enhance security.
+For example, the "listener scripts" receive data sent from the "sender scripts". Packets can be sent normally, or they can also be easily end-to-end encrypted using symmetric Fernet AES128 in CBC mode with SHA256 HMAC message authentication. When choosing to use the encryption script pairs, you'll find the symmetric shared password already written inside both files of the chosen pair, and it should be changed to a new one before usage to enhance security.
 
 Inside the scripts are variables for TARGET_IP and PORT, which can be changed into preferred static ones. Otherwise, the scripts ask to type in the IP address and port number manually everytime when launched.
 

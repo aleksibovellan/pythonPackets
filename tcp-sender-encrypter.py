@@ -1,23 +1,12 @@
-# pythonPackets v.1.2
+# pythonPackets v.1.3
 # tcp-sender-encrypter.py
 #
 # Aleksi Bovellan
 #
 # Sends a symmetrically encrypted TCP packet from user input text to any IP address and port set below.
-# Might need to run 'pip3 install cryptography' before starting.
+# Might need to install 'pip3 install cryptography' before starting.
 # Run on Linux with 'sudo python3 tcp-sender-encrypter.py'
 # Run on MacOS with 'sudo python3.9 tcp-sender-encrypter.py'
-
-
-# Set the destination IP address and port
-
-TARGET_IP = '0.0.0.0'
-PORT = 80
-
-# Set the Fernet key (it must be the same as the one used to read and decrypt encrypted messages)
-# So better make a new one and put that same key into the tcp-listener-decrypter.py file also.
-
-fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk33lVDbXYEbOENuHU='
 
 
 from socket import socket, AF_INET, SOCK_STREAM
@@ -29,27 +18,62 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.fernet import Fernet
 
 
-
-# Encrypt the message using the Fernet key
-def encrypt_message(message, fernet_key):
-    f = Fernet(fernet_key)
-    encrypted_message = f.encrypt(message)
-    return encrypted_message
-
-# Send the encrypted message to the target IP address and port
-def send_message(encrypted_message, target_ip, target_port):
-    with socket(AF_INET, SOCK_STREAM) as s:
-        s.connect((target_ip, target_port))
-        s.sendall(encrypted_message)
-
-
-# Example usage
-message = input("\nEnter the message to send: ").encode()
-encrypted_message = encrypt_message(message, fernet_key)
 try:
-    send_message(encrypted_message, TARGET_IP, PORT)
-    print("\nPacket was sent!\n")
 
+
+ # Set the destination IP address and port manually here if typing is not needed.
+ # Remember in that case to comment out the below 'input' lines for IP and port.
+
+ # TARGET_IP = '127.0.0.1'
+ # PORT = 80
+
+ # Prompt the user for the destination IP address and port:
+
+ TARGET_IP = input('\nEnter the IP address where to send the encrypted TCP packet: ') 
+ PORT = int(input('Enter the port number: '))
+
+
+ # Prompt the user for the message to send:
+
+ message = input("\nEnter the message to be sent in the encrypted TCP packet's payload field: ").encode()
+
+ # Symmetric encryption key, which should be the same in your sender script, and listener script.
+ # # Better to change some values into random ones and put that same key into the tcp-listener-decrypter.py file
+
+ fernet_key = b'2fqczRzMV88AJwVz42cdDqdy2tk33lVDbXYEbOENuHU='
+
+
+ # ---------------------------------
+
+
+ # Encrypt the message using the Fernet key
+
+
+ def encrypt_message(message, fernet_key):
+     f = Fernet(fernet_key)
+     encrypted_message = f.encrypt(message)
+     return encrypted_message
+
+ # Send the encrypted message to the target IP address and port
+ def send_message(encrypted_message, target_ip, target_port):
+     with socket(AF_INET, SOCK_STREAM) as s:
+         s.connect((target_ip, target_port))
+         s.sendall(encrypted_message)
+
+ # Run the program.
+ encrypted_message = encrypt_message(message, fernet_key)
+ try:
+     print('\nTrying to connect to destination ...')
+     send_message(encrypted_message, TARGET_IP, PORT)
+     print("\nEncrypted TCP packet was sent!\n")
+
+ except:
+     print("\nCould not create a connection.\n")
+
+
+except KeyboardInterrupt:
+    print("\n")
+    exit()
 except:
-    print("\nCould not create a connection.\n")
-
+    print('\nSomething went wrong, maybe the target values.\n')
+    exit()

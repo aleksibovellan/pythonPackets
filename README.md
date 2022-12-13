@@ -12,7 +12,7 @@ Inside the scripts are variables for TARGET_IP and PORT, which can be changed in
 
 These scripts run on Linux with 'sudo python3 script'. On MacOS, the encryption-senders have to be launched with 'sudo python3.9 script'.
 
-May require 'pip3 install cryptography', and 'sudo apt install scapy' or "sudo apt install python3-scapy'.
+May require 'pip3 install cryptography', and 'sudo apt install scapy' or 'sudo apt install python3-scapy'.
 
 ## IMPORTANT: The most usual reasons for errors and crashes are:
 - running Apache2 or some other webserver on port 80 at the same time

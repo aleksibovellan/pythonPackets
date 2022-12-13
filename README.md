@@ -1,6 +1,6 @@
 # pythonPackets v. 1.3
 
-A useful collection of Python scrips ("sender and listener" pairs) for easy and fast transfering of any data across the internet using just TCP and UDP packets created from Python.
+## A useful collection of Python scrips ("sender and listener" pairs) for easy and fast transfering of any data across the internet using just TCP and UDP packets created from Python.
 
 Just by choosing the right pair of scripts, you can use TCP or UDP packets to send any user data in an easy way.
 
@@ -12,7 +12,7 @@ These scripts run on Linux with 'sudo python3 script'. On MacOS, the encryption-
 
 May require 'pip3 install cryptography', and 'sudo apt install scapy' or "sudo apt install python3-scapy'.
 
-IMPORTANT: The most usual reasons for errors and crashes are:
+## IMPORTANT: The most usual reasons for errors and crashes are:
 - running Apache2 on port 80 at the same time
 - firewall settings locally, or between the two points
 - failing to install the suggested libraries above

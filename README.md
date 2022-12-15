@@ -4,7 +4,7 @@
 
 Just by choosing the right pair of scripts, or script, you can use TCP or UDP packets to send any user data in an easy way.
 
-For example, the "listener scripts" receive data sent from the "sender scripts". They ask the user to type in any relevant data when launched.
+#### Usage example: 1) start a listener script (or listener-decrypter) on one computer. It asks for a port number to listen to, and stays on. 2) Start a sender script (or sender-encrypter) on another computer. It asks for an IP address and port, and then a message to be send. That message will then be received and shown in the listener script's computer. (You can also use one of the "packet creater" scripts as a sender, which will ask for all the packet fields to be custom-filled, so you can change the shown source address, etc.).
 
 Packets can be sent normally, or they can also be easily end-to-end encrypted using symmetric Fernet AES128 in CBC mode with SHA256 HMAC message authentication. When choosing to use the encryption script pairs, you'll find the symmetric shared password already written inside both files of the chosen pair, and it should be changed to a new one before usage to enhance security.
 

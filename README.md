@@ -1,6 +1,6 @@
 # pythonPackets v. 1.3
 
-## A useful collection of Python scripts ("sender and listener" pairs) for easy and fast transfering of text or data across the internet using just TCP and UDP packets. Includes also a custom TCP packet maker script for easy user-defined TCP packet field values to send.
+## A useful collection of Python scripts ("sender and listener" pairs) for easy and fast transfering of text or data across the internet using just TCP and UDP packets. Includes encryption as an option, and also a bonus a custom TCP packet maker script too for easy user-defined TCP packet field values to send.
 
 Just by choosing the right pair of scripts, or script, you can use TCP or UDP packets to send any user data in an easy way.
 
